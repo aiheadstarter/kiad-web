@@ -28,6 +28,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <a href="#research" className="text-gray-600 hover:text-brand-yellow font-medium transition-colors">연구 분야</a>
           <a href="#education" className="text-gray-600 hover:text-brand-yellow font-medium transition-colors">교육 프로그램</a>
+          <a href="#blog" className="text-gray-600 hover:text-brand-yellow font-medium transition-colors">블로그</a>
           <a href="#community" className="text-gray-600 hover:text-brand-yellow font-medium transition-colors">커뮤니티</a>
           <a href="#about" className="text-gray-600 hover:text-brand-yellow font-medium transition-colors">소개</a>
         </div>
@@ -52,6 +53,7 @@ const Navbar = () => {
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 py-4 px-6 flex flex-col gap-4">
           <a href="#research" className="text-gray-600 hover:text-brand-yellow font-medium py-2">연구 분야</a>
           <a href="#education" className="text-gray-600 hover:text-brand-yellow font-medium py-2">교육 프로그램</a>
+          <a href="#blog" className="text-gray-600 hover:text-brand-yellow font-medium py-2">블로그</a>
           <a href="#community" className="text-gray-600 hover:text-brand-yellow font-medium py-2">커뮤니티</a>
           <a href="#about" className="text-gray-600 hover:text-brand-yellow font-medium py-2">소개</a>
           <button className="bg-brand-black text-white px-6 py-3 rounded-lg font-medium w-full">
