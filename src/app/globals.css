@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ Pretendard Font ============ */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+/* ============ CSS Variables (기존 디자인 시스템 유지) ============ */
+:root {
+  --primary: #1B3A5C;
+  --primary-light: #2A5580;
+  --accent: #E8A838;
+  --accent-light: #F0C060;
+  --bg-dark: #0D1B2A;
+  --bg-section: #111D2E;
+  --bg-card: #162635;
+  --bg-card-hover: #1E3A52;
+  --text-white: #FFFFFF;
+  --text-light: #C8D6E5;
+  --text-muted: #8899AA;
+  --border-color: #1E3A52;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* ============ Base ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============ Selection ============ */
+::selection {
+  background: var(--accent);
+  color: var(--bg-dark);
+}
+
+/* ============ Scrollbar ============ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+/* ============ Utility Classes ============ */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+  }
+
+  .glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(13, 27, 42, 0.85);
+    border-bottom: 1px solid rgba(232, 168, 56, 0.1);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-color: rgba(232, 168, 56, 0.3);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-accent text-navy font-bold rounded-xl transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent-light;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(232, 168, 56, 0.3);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-accent/30 text-accent font-bold rounded-xl transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    @apply bg-accent/10 border-accent;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* ============ Animation Fade In on Scroll ============ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ Badge Styles ============ */
+.badge {
+  @apply inline-block px-3 py-1 text-xs font-bold rounded-full;
+}
+
+.badge-hot {
+  @apply bg-red-500/20 text-red-400;
+}
+
+.badge-new {
+  @apply bg-green-500/20 text-green-400;
+}
+
+.badge-trend {
+  @apply bg-blue-500/20 text-blue-400;
+}
+
+/* ============ Rich Content Styles ============ */
+.rich-content h2 {
+  @apply text-2xl font-bold text-white mt-8 mb-4;
+}
+
+.rich-content h3 {
+  @apply text-xl font-bold text-white mt-6 mb-3;
+}
+
+.rich-content p {
+  @apply text-kiad-light leading-relaxed mb-4;
+}
+
+.rich-content ul, .rich-content ol {
+  @apply ml-6 mb-4 text-kiad-light;
+}
+
+.rich-content li {
+  @apply mb-2;
+}
+
+.rich-content a {
+  @apply text-accent hover:text-accent-light underline;
+}
+
+.rich-content img {
+  @apply rounded-xl my-6 max-w-full;
+}
+
+.rich-content blockquote {
+  @apply border-l-4 border-accent pl-4 italic text-kiad-muted my-6;
+}
+
+/* ============ FAQ Accordion ============ */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 500px;
+  padding-top: 0.75rem;
+}
